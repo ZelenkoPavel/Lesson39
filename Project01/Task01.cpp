@@ -1,10 +1,10 @@
 #include <iostream>
-#include <time.h>
+#include <ctime> // C++ 
 
 using namespace std;
 
-string is_prime_number1(int);
-string is_prime_number2(int);
+bool is_prime_number1(int);
+bool is_prime_number2(int);
 
 int main() {
 
@@ -12,24 +12,25 @@ int main() {
 
 	cout << "Input number: ";
     cin >> number;
-	float start_1 = time(NULL);
+	long start_time = time(NULL);
 
-	cout << "Result 1 - " << is_prime_number1(number)  << endl;
+	cout << "Result 1 - " << (is_prime_number1(number) ? "Yes, it's prime number" : "No") << endl;
 
-	float end_1 = time(NULL);
+	long end_time = time(NULL);
 
-	cout << "Time - " << end_1 - start_1 << endl;
+	cout << "Time - " << (end_time - start_time) << " sec. " << endl;
+
+	//2147483647
 
 
+	start_time = time(NULL);
 
+	cout << "Result 2 - " << (is_prime_number2(number) ? "Yes, it's prime number" : "No") << endl;
 
-	float start_2 = time(NULL);
+	end_time = time(NULL);
 
-	cout << "Result 2 - " << is_prime_number2(number) << endl;
+	cout << "Time - " << (end_time - start_time) << " sec. " << endl;
 
-	float end_2 = time(NULL);
-
-	cout << "Time - " << end_2 - start_2 << endl;
 
 	return 0;
 }
